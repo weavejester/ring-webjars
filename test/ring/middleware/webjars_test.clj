@@ -16,4 +16,4 @@
     (is (nil? (handler (mock/request :get "/assets"))))
     (is (nil? (handler (mock/request :get "/assets/bootstrap"))))
     (is (= (slurp-response handler "/assets/bootstrap/less/close.less")
-           (slurp-webjars "bootstrap/3.3.1/less/close.less")))))
+           (slurp-webjars "bootstrap/3.3.5/less/close.less")))))
