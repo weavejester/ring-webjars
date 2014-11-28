@@ -40,5 +40,4 @@ the path by specifying a second argument.
 
 Copyright © 2014 James Reeves
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Released under the MIT license.
