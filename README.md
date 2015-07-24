@@ -40,6 +40,6 @@ the path by specifying a second argument.
 
 ## License
 
-Copyright © 2014 James Reeves
+Copyright © 2015 James Reeves
 
 Released under the MIT license.
