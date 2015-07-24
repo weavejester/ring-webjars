@@ -26,7 +26,7 @@ WebJar assets will then be served from the following path:
 
     /assets/<webjar>/<asset path>
 
-For example, if you include the `[org.webjars/bootstrap "3.3.1"]`
+For example, if you include the `[org.webjars/bootstrap "3.3.5"]`
 dependency, then the minified bootstrap CSS will be available at:
 
     /assets/bootstrap/css/bootstrap.min.css
