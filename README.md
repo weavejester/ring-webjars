@@ -10,7 +10,7 @@ Ring middleware to serve static assets from [WebJars][].
 
 Include the following dependency in your `project.clj` file:
 
-    [ring-webjars "0.1.0"]
+    [ring-webjars "0.1.1"]
 
 ## Usage
 
