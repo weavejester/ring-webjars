@@ -3,10 +3,9 @@
   :url "https://github.com/weavejester/ring-webjars"
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
-  :dependencies [[org.clojure/clojure "1.5.1"]
+  :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.webjars/webjars-locator "0.19"]
-                 [org.slf4j/slf4j-nop "1.7.7"]
-                 [ring/ring-core "1.3.2"]]
+                 [ring/ring-core "1.4.0"]]
   :profiles
-  {:dev {:dependencies [[org.webjars/bootstrap "3.3.1"]
+  {:dev {:dependencies [[org.webjars/bootstrap "3.3.5"]
                         [ring-mock "0.1.5"]]}})
