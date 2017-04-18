@@ -20,15 +20,28 @@
 (defn- request-path [request]
   (codec/url-decode (req/path-info request)))
 
+(defn- get-request? [request]
+  (#{:head :get} (:request-method request)))
+
+(defn- asset-response [path request]
+  (-> (resp/resource-response path)
+      (head/head-response request)))
+
 (defn wrap-webjars
   ([handler]
      (wrap-webjars handler "/assets"))
   ([handler prefix]
      (let [assets (asset-map (WebJarAssetLocator.) prefix)]
-       (fn [request]
-         (if (#{:head :get} (:request-method request))
-           (if-let [path (assets (request-path request))]
-             (-> (resp/resource-response path)
-                 (head/head-response request))
-             (handler request))
-           (handler request))))))
+       (fn
+         ([request]
+          (if (get-request? request)
+            (if-let [path (assets (request-path request))]
+              (asset-response path request)
+              (handler request))
+            (handler request)))
+         ([request respond raise]
+          (if (get-request? request)
+            (if-let [path (assets (request-path request))]
+              (respond (asset-response path request))
+              (handler request respond raise))
+            (handler request respond raise)))))))
