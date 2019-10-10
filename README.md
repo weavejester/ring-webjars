@@ -35,7 +35,7 @@ By default assets are placed on the `/assets` path. You can change
 the path by specifying a second argument.
 
 ```clojure
-(def app (web-webjars handler "/webjars"))
+(def app (wrap-webjars handler "/webjars"))
 ```
 
 ## License
