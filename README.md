@@ -22,14 +22,17 @@ Require the middleware and add it to your handler.
 (def app (wrap-webjars handler)
 ```
 
-WebJar assets will then be served from the following path:
+WebJar assets will then be served from the following paths:
 
     /assets/<webjar>/<asset path>
+    /assets/<webjar>/<webjar-version>/<asset path>
 
 For example, if you include the `[org.webjars/bootstrap "3.3.5"]`
-dependency, then the minified bootstrap CSS will be available at:
+dependency, then the minified bootstrap CSS will be available at
+paths:
 
     /assets/bootstrap/css/bootstrap.min.css
+    /assets/bootstrap/3.3.5/css/bootstrap.min.css
 
 By default assets are placed on the `/assets` path. You can change
 the path by specifying a second argument.
