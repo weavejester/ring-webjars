@@ -8,13 +8,14 @@
 (def ^:private webjars-pattern
   #"META-INF/resources/webjars/([^/]+)/([^/]+)/(.*)")
 
-(defn- asset-path [prefix resource]
-  (let [[_ name version path] (re-matches webjars-pattern resource)]
-    (str prefix "/" name "/" path)))
+(defn- asset-paths [prefix resource]
+  (let [[_ name version filename] (re-matches webjars-pattern resource)]
+    {(str prefix "/" name "/" version "/" filename) resource
+     (str prefix "/" name "/" filename)             resource}))
 
 (defn- asset-map [^WebJarAssetLocator locator prefix]
   (->> (.listAssets locator "")
-       (map (juxt (partial asset-path prefix) identity))
+       (map (partial asset-paths prefix))
        (into {})))
 
 (defn- request-path [request]

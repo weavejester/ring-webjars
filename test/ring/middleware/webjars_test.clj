@@ -27,6 +27,9 @@
       (is (nil? (handler (get-req "/assets/bootstrap"))))
       (let [resp (handler (get-req "/assets/bootstrap/less/close.less"))]
         (is (= (slurp (:body resp))
+               (slurp-webjars "bootstrap/3.3.5/less/close.less"))))
+      (let [resp (handler (get-req "/assets/bootstrap/3.3.5/less/close.less"))]
+        (is (= (slurp (:body resp))
                (slurp-webjars "bootstrap/3.3.5/less/close.less"))))))
 
   (testing "async handlers"
@@ -36,4 +39,7 @@
       (is (nil? (async-response handler (get-req "/assets/bootstrap"))))
       (let [resp (async-response handler (get-req "/assets/bootstrap/less/close.less"))]
         (is (= (slurp (:body resp))
-               (slurp-webjars "bootstrap/3.3.5/less/close.less")))))))
+               (slurp-webjars "bootstrap/3.3.5/less/close.less")))
+        (let [resp (async-response handler (get-req "/assets/bootstrap/3.3.5/less/close.less"))]
+          (is (= (slurp (:body resp))
+                 (slurp-webjars "bootstrap/3.3.5/less/close.less"))))))))
