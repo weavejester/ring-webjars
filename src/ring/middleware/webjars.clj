@@ -9,7 +9,7 @@
   #"META-INF/resources/webjars/([^/]+)/([^/]+)/(.*)")
 
 (defn- asset-path [prefix resource]
-  (let [[_ name version path] (re-matches webjars-pattern resource)]
+  (let [[_ name _version path] (re-matches webjars-pattern resource)]
     (str prefix "/" name "/" path)))
 
 (defn- asset-map [^WebJarAssetLocator locator prefix]

@@ -1,14 +1,11 @@
 (ns ring.middleware.webjars-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest is testing]]
             [clojure.java.io :as io]
-            [ring.middleware.webjars :refer :all]
+            [ring.middleware.webjars :refer [wrap-webjars]]
             [ring.mock.request :as mock]))
 
 (defn- get-req [uri]
   (mock/request :get uri))
-
-(defn- slurp-response [handler uri]
-  (some-> uri get-req handler :body slurp))
 
 (defn- slurp-webjars [path]
   (slurp (io/resource (str "META-INF/resources/webjars/" path))))
