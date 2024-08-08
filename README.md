@@ -1,6 +1,4 @@
-# Ring-WebJars
-
-[![Build Status](https://travis-ci.org/weavejester/ring-webjars.svg)](https://travis-ci.org/weavejester/ring-webjars)
+# Ring-WebJars [![Build Status](https://github.com/weavejester/ring-webjars/actions/workflows/test.yml/badge.svg)](https://github.com/weavejester/ring-webjars/actions/workflows/test.yml)
 
 Ring middleware to serve static assets from [WebJars][].
 
