@@ -29,19 +29,19 @@
 
 (defn wrap-webjars
   ([handler]
-     (wrap-webjars handler "/assets"))
+   (wrap-webjars handler "/assets"))
   ([handler prefix]
-     (let [assets (asset-map (WebJarAssetLocator.) prefix)]
-       (fn
-         ([request]
-          (if (get-request? request)
-            (if-let [path (assets (request-path request))]
-              (asset-response path request)
-              (handler request))
-            (handler request)))
-         ([request respond raise]
-          (if (get-request? request)
-            (if-let [path (assets (request-path request))]
-              (respond (asset-response path request))
-              (handler request respond raise))
-            (handler request respond raise)))))))
+   (let [assets (asset-map (WebJarAssetLocator.) prefix)]
+     (fn
+       ([request]
+        (if (get-request? request)
+          (if-let [path (assets (request-path request))]
+            (asset-response path request)
+            (handler request))
+          (handler request)))
+       ([request respond raise]
+        (if (get-request? request)
+          (if-let [path (assets (request-path request))]
+            (respond (asset-response path request))
+            (handler request respond raise))
+          (handler request respond raise)))))))
