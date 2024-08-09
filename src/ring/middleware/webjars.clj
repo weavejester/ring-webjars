@@ -6,16 +6,20 @@
             [ring.util.response :as resp]))
 
 (def ^:private webjars-pattern
-  #"META-INF/resources/webjars/([^/]+)/([^/]+)/(.*)")
+  #"META-INF/resources/webjars/(.*)")
 
-(defn- asset-path [prefix resource]
-  (let [[_ name _version path] (re-matches webjars-pattern resource)]
-    (str prefix "/" name "/" path)))
+(def ^:private webjars-no-version-pattern
+  #"([^/]+)/(?:[^/]+)/(.*)")
+
+(defn- add-asset-path [prefix asset-map resource]
+  (let [[_ full-path] (re-matches webjars-pattern resource)
+        [_ name path] (re-matches webjars-no-version-pattern full-path)]
+    (assoc asset-map
+           (str prefix "/" full-path)     resource
+           (str prefix "/" name "/" path) resource)))
 
 (defn- asset-map [^WebJarAssetLocator locator prefix]
-  (->> (.listAssets locator "")
-       (map (juxt (partial asset-path prefix) identity))
-       (into {})))
+  (reduce (partial add-asset-path prefix) {} (.listAssets locator "")))
 
 (defn- request-path [request]
   (codec/url-decode (req/path-info request)))

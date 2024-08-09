@@ -24,6 +24,9 @@
       (is (nil? (handler (get-req "/assets/bootstrap"))))
       (let [resp (handler (get-req "/assets/bootstrap/css/bootstrap.css"))]
         (is (= (slurp (:body resp))
+               (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css"))))
+      (let [resp (handler (get-req "/assets/bootstrap/5.3.3/css/bootstrap.css"))]
+        (is (= (slurp (:body resp))
                (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css"))))))
 
   (testing "async handlers"
@@ -32,5 +35,8 @@
       (is (nil? (async-response handler (get-req "/assets"))))
       (is (nil? (async-response handler (get-req "/assets/bootstrap"))))
       (let [resp (async-response handler (get-req "/assets/bootstrap/css/bootstrap.css"))]
+        (is (= (slurp (:body resp))
+               (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css"))))
+      (let [resp (async-response handler (get-req "/assets/bootstrap/5.3.3/css/bootstrap.css"))]
         (is (= (slurp (:body resp))
                (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css")))))))
