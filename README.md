@@ -8,11 +8,11 @@ Ring middleware to serve static assets from [WebJars][].
 
 Add the following dependency to your deps.edn file:
 
-    ring-webjars/ring-webjars {:mvn/version "0.2.0"}
+    ring-webjars/ring-webjars {:mvn/version "0.2.1"}
 
 Or to your Leiningen project file:
 
-    [ring-webjars "0.2.0"]
+    [ring-webjars "0.2.1"]
 
 ## Usage
 

@@ -1,4 +1,4 @@
-(defproject ring-webjars "0.2.0"
+(defproject ring-webjars "0.2.1"
   :description "Ring middleware to serve assets from WebJars"
   :url "https://github.com/weavejester/ring-webjars"
   :license {:name "The MIT License"
