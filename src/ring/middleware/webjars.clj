@@ -1,6 +1,7 @@
 (ns ring.middleware.webjars
   (:import [org.webjars WebJarAssetLocator])
   (:require [ring.middleware.head :as head]
+            [ring.middleware.content-type :as content-type]
             [ring.util.codec :as codec]
             [ring.util.request :as req]
             [ring.util.response :as resp]))
@@ -29,7 +30,8 @@
 
 (defn- asset-response [path request]
   (-> (resp/resource-response path)
-      (head/head-response request)))
+      (head/head-response request)
+      (content-type/content-type-response request)))
 
 (defn wrap-webjars
   ([handler]
