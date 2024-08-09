@@ -6,7 +6,11 @@ Ring middleware to serve static assets from [WebJars][].
 
 ## Installation
 
-Include the following dependency in your `project.clj` file:
+Add the following dependency to your deps.edn file:
+
+    ring-webjars/ring-webjars {:mvn/version "0.2.0"}
+
+Or to your Leiningen project file:
 
     [ring-webjars "0.2.0"]
 
@@ -24,8 +28,8 @@ WebJar assets will then be served from the following path:
 
     /assets/<webjar>/<asset path>
 
-For example, if you include the `[org.webjars/bootstrap "3.3.5"]`
-dependency, then the minified bootstrap CSS will be available at:
+For example, if you include the `org.webjars/bootstrap` dependency, then the
+minified bootstrap CSS will be available at:
 
     /assets/bootstrap/css/bootstrap.min.css
 
