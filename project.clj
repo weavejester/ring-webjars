@@ -5,7 +5,8 @@
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.webjars/webjars-locator "0.52"]
-                 [ring/ring-core "1.12.2"]]
+                 [com.fasterxml.jackson.core/jackson-core "2.19.2"]
+                 [ring/ring-core "1.14.2"]]
   :profiles
-  {:dev {:dependencies [[org.webjars/bootstrap "5.3.3"]
-                        [ring/ring-mock "0.4.0"]]}})
+  {:dev {:dependencies [[org.webjars/bootstrap "5.3.7"]
+                        [ring/ring-mock "0.6.2"]]}})

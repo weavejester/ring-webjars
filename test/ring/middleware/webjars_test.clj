@@ -26,12 +26,12 @@
         (is (= (get-in resp [:headers "Content-Type"])
                "text/css"))
         (is (= (slurp (:body resp))
-               (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css"))))
-      (let [resp (handler (get-req "/assets/bootstrap/5.3.3/css/bootstrap.css"))]
+               (slurp-webjars "bootstrap/5.3.7/css/bootstrap.css"))))
+      (let [resp (handler (get-req "/assets/bootstrap/5.3.7/css/bootstrap.css"))]
         (is (= (get-in resp [:headers "Content-Type"])
                "text/css"))
         (is (= (slurp (:body resp))
-               (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css"))))))
+               (slurp-webjars "bootstrap/5.3.7/css/bootstrap.css"))))))
 
   (testing "async handlers"
     (let [handler (wrap-webjars (fn [_ respond _] (respond nil)))]
@@ -42,9 +42,9 @@
         (is (= (get-in resp [:headers "Content-Type"])
                "text/css"))
         (is (= (slurp (:body resp))
-               (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css"))))
-      (let [resp (async-response handler (get-req "/assets/bootstrap/5.3.3/css/bootstrap.css"))]
+               (slurp-webjars "bootstrap/5.3.7/css/bootstrap.css"))))
+      (let [resp (async-response handler (get-req "/assets/bootstrap/5.3.7/css/bootstrap.css"))]
         (is (= (get-in resp [:headers "Content-Type"])
                "text/css"))
         (is (= (slurp (:body resp))
-               (slurp-webjars "bootstrap/5.3.3/css/bootstrap.css")))))))
+               (slurp-webjars "bootstrap/5.3.7/css/bootstrap.css")))))))
