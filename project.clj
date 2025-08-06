@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.webjars/webjars-locator "0.52"]
                  [com.fasterxml.jackson.core/jackson-core "2.19.2"]
+                 [io.github.classgraph/classgraph "4.8.181"]
                  [ring/ring-core "1.14.2"]]
   :profiles
   {:dev {:dependencies [[org.webjars/bootstrap "5.3.7"]
